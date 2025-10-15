@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Record.java to edit this template
  */
-package uni.challenges.challenges;
+package book;
 
-import uni.challenges.challenges.BookState;
+
 
 /**
  *
@@ -23,6 +23,11 @@ public class BookRecord {
         this.ISBN = ISBN;
         this.bookFormat = bookFormat;
         this.bookState = BookState.AVAILIBLE;        
+    }
+
+    @Override
+    public String toString() {
+        return "BookRecord{" + "BookTitle=" + BookTitle + ", address=" + address + ", ISBN=" + ISBN + ", bookState=" + bookState + ", bookFormat=" + bookFormat + '}';
     }
 
     
