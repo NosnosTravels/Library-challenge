@@ -13,7 +13,7 @@ public class Members {
     String name;
     String dob;
     String phone_number;
-    String libID;
+    String memberID;
     String email;
     String books_borrowed;
 
@@ -45,11 +45,11 @@ public class Members {
     }
 
     public String getLibID() {
-        return libID;
+        return memberID;
     }
 
     public void setLibID(String libID) {
-        this.libID = libID;
+        this.memberID = libID;
     }
 
     public String getEmail() {

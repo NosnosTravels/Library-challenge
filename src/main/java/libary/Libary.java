@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package libary;
-import java.lang.System.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  *
  * @author M2200478
@@ -13,7 +16,7 @@ public class Libary {
     String libaryName;
     String location;
     int libaryID;
-//    private static final System.Logger LOGGER = LoggerFactory.getLogger(Libary.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Libary.class);
 
     public Libary() {
     }

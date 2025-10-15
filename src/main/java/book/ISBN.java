@@ -12,7 +12,6 @@ public record ISBN() {
     private static int isbn;
     
     public ISBN(){
-     this.isbn = 66;
-    System.out.println(isbn);
+// add testing checks for interger limit
     }
 }

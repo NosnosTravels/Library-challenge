@@ -3,46 +3,96 @@
  */
 package main;
 
+import static Constants.SQLConstants.URL;
+import SQLiteQueries.CreateTables;
+import SQLiteQueries.DropTables;
+
+
 import book.BookFormat;
 import book.BookRecord;
 import http.HttpService;
 import java.io.IOException;
 import book.Book;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import staff.Staff;
 import staff.Address;
 import libary.Libary;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+
+        
+        
 /**
  *
  * @author M2200478
  */
 public class LibaryChalleges {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LibaryChalleges.class);
+    static Connection conn;
+    public static void main(String[] args) throws SQLException{
+//        connect();
+    CreateTables.BookTable();
+    CreateTables.MemberTable();
+    CreateTables.StaffTable();
+    DropTables.dropAllTables();
+    
+        
 
-    public static void main(String[] args) throws IOException {
-        HttpService.startServer(8081);
-
-//  Staff Object
-        Staff staffObj = new Staff();
-        staffObj.setFirstname("Harrison");
-        staffObj.setLastname("Smith");
-        Address address = new Address();
-        address.setAddress1("add1");
-        address.setAddress2("address2");
-        address.setTown("Middlesbrough");
-        staffObj.setStaffAddress(address);
-
-//  Displays the book      
-        BookRecord newBook = new BookRecord("Name", "stirng", 1233525, BookFormat.EBOOK);
-        Book book = new Book("title", "author", 13213123);
-        System.out.println(book);
-
-        //Libary Object
-        Libary libaryObj = new Libary();
-        libaryObj.setLibaryName("Middlesbrough Libary");
-        libaryObj.setLocation("Middlesbrough");
-        libaryObj.setLibaryID(22445687);
-//      System.out.println(libaryObj);
     }
+        
+    
+    public static void connect() throws SQLException {
+        System.out.println("""
+                           
+                           ======================
+                           Connecting to databse
+                           ======================""");
+        
+        try (Connection conn = DriverManager.getConnection(URL)) {
+            System.out.println("""
+                               
+                               ======================
+                               Connection Successfull
+                               ======================""");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if( conn != null) {
+                conn.close();
+            }
+            System.out.println("""
 
+               =======================
+               Connection Disconnected
+               =======================""");
+        }
+    }
 }
+
+////  Staff Object
+//        Staff staffObj = new Staff();
+//        staffObj.setFirstname("Harrison");
+//        staffObj.setLastname("Smith");
+//        Address address = new Address();
+//        address.setAddress1("add1");
+//        address.setAddress2("address2");
+//        address.setTown("Middlesbrough");
+//        staffObj.setStaffAddress(address);
+//
+////  Displays the book      
+//        BookRecord newBook = new BookRecord("Name", "stirng", 1233525, BookFormat.EBOOK);
+//        Book book = new Book("title", "author", 13213123);
+//        System.out.println(book);
+//
+//        //Libary Object
+//        Libary libaryObj = new Libary();
+//        libaryObj.setLibaryName("Middlesbrough Libary");
+//        libaryObj.setLocation("Middlesbrough");
+//        libaryObj.setLibaryID(22445687);
+////      System.out.println(libaryObj);
+//    }
+
