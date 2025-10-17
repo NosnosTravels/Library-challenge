@@ -16,6 +16,6 @@ public interface BookRepositoryInterface {
     void save(Book book);
     void findByIsbn(ISBN isbn);
     void findAll();
-    void upadte(Book book);
+    void update(Book book);
     void deletebyIsbn(ISBN isbn);
 }

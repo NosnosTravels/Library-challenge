@@ -10,12 +10,12 @@ import java.util.Scanner;
  * @author M2200478
  */
 public class Book {
-private String title;
+private String Title;
 private String author;
 private int isbn;
     
-    public Book (String conTitle, String author, int isbn) { // constructor 
-        this.title = conTitle; 
+    public Book () { // constructor 
+        this.Title = Title; 
         this.author = author; 
         this.isbn = isbn;
     }
@@ -25,7 +25,7 @@ private int isbn;
      */
     @Override
     public String toString() {
-        return "Book{" + "title=" + title + ", author=" + author + ", isbn=" + isbn + '}';
+        return "Book{" + "title=" + Title + ", author=" + author + ", isbn=" + isbn + '}';
     }
 
 } 

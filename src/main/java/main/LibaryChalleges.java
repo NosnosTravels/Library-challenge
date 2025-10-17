@@ -34,11 +34,32 @@ public class LibaryChalleges {
     private static final Logger LOGGER = LoggerFactory.getLogger(LibaryChalleges.class);
     static Connection conn;
     public static void main(String[] args) throws SQLException{
+//    Conencts to the database
 //        connect();
-    CreateTables.BookTable();
-    CreateTables.MemberTable();
-    CreateTables.StaffTable();
-    DropTables.dropAllTables();
+
+//    Creates the tables
+    //    CreateTables.EnableForeignKey();
+    //    CreateTables.BookTable();
+    //    CreateTables.MemberTable();
+    //    CreateTables.StaffTable();
+    //    CreateTables.LibaryTable();
+    //    CreateTables.UsersTable();
+    //    CreateTables.BorrowedBooksTable();
+    
+//    Creates all of the tables
+        CreateTables.CreateAllTables();
+      
+//    Deletes the database
+//      DropTables.dropDatabase();
+
+//    Drops each table
+//        DropTables.DropBookTable();
+//        DropTables.DropMembersTable();
+//        DropTables.DropStaffTable();
+//        DropTables.DropLibaryTable();
+//        DropTables.DropUsersTable();
+//        DropTables.DropBBTable();
+
     
         
 

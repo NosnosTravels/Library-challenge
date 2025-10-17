@@ -6,6 +6,8 @@ package repositories;
 
 import book.Book;
 import book.ISBN;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,9 +15,17 @@ import book.ISBN;
  */
 public class BookRepository implements  BookRepositoryInterface{
 //BookRepository book = new BorrowBook();
-
+    //concrete implementation
+    Book book = new Book();
+    List<Book> books = new ArrayList<>();
     
-    
+    for (Book book : books) {
+        findByIsbn(ISBN);
+        book.save(Book book);
+        findAll();
+        update(Book book);
+        deletebyIsbn(ISBN isbn);
+    }
     
     
     @Override
