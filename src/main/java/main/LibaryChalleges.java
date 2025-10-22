@@ -9,7 +9,6 @@ import SQLiteQueries.DropTables;
 
 
 import book.BookFormat;
-import book.BookRecord;
 import http.HttpService;
 import java.io.IOException;
 import book.Book;

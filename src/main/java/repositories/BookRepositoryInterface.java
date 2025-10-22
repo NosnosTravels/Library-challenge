@@ -6,6 +6,7 @@ package repositories;
 
 import book.Book;
 import book.ISBN;
+import java.util.List;
 
 /**
  *
@@ -14,8 +15,8 @@ import book.ISBN;
 public interface BookRepositoryInterface {
     
     void save(Book book);
-    void findByIsbn(ISBN isbn);
-    void findAll();
+    Book findByIsbn(ISBN isbn);
+    List<Book> findAll();
     void update(Book book);
-    void deletebyIsbn(ISBN isbn);
+    void deleteByIsbn(ISBN isbn);
 }
