@@ -4,28 +4,74 @@
  */
 package book;
 
+import Exceptions.IllegalArugmentException;
+import java.util.Objects;        
+        
+
 /**
  *
  * @author M2200478
  */
 public class ISBN {
-    private String value;
+    private final String value;
     
-    public ISBN(String value) {
-        this.value = value;
-    }
-    
-    public String getValue(){
-        return this.value;
+    public ISBN() {
+        this.value = null;
     }
     
-    public boolean equals (Object obj){
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        ISBN isbn = (ISBN) obj;
-        return value.equals(isbn.value);
+    public ISBN (String value) throws IllegalArugmentException {
+        if (value == null || value.trim().isEmpty()) {
+            throw new IllegalArugmentException("ISBN cannot be blank");
+        }
+        
+        String cleaned = value.trim();
+        
+        if (!cleaned.matches("[0-9\\-Xx+]")) {
+         throw new IllegalArugmentException("Invalid ISBN format: ");   
+        }
+        this.value = cleaned;
     }
-    public int hashCode(){
-        return value.hashCode();
+    public String getValue() {
+        return value;
     }
+    
+    public String getDigitsOnly() {
+        return value == null ? null : value.replace("-", " ");
+    }
+    
+    @Override
+    public String toString() {
+        return value;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ISBN other)) return false;
+        return Objects.equals(getDigitsOnly(), other.getDigitsOnly());
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDigitsOnly());
+    }
+    
 }
+//    private String value;
+//    
+//    public ISBN(String value) {
+//        this.value = value;
+//    }
+//    
+//    public String getValue(){
+//        return this.value;
+//    }
+//    
+//    public boolean equals (Object obj){
+//        if (this == obj) return true;
+//        if (obj == null || getClass() != obj.getClass()) return false;
+//        ISBN isbn = (ISBN) obj;
+//        return value.equals(isbn.value);
+//    }
+//    public int hashCode(){
+//        return value.hashCode();
+//    }
+//}

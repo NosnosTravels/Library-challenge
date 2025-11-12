@@ -29,6 +29,8 @@ public class HttpService {
     }
 
     private static void registerEndPoints() {
-        server.createContext("/home", new HomeHandler());
+        server.createContext("/", new HomeHandler());
+        server.createContext("/books", new HomeHandler());
+        server.createContext("/books/", new HomeHandler());
     }
 }

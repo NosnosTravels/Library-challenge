@@ -24,14 +24,16 @@ public class BookService implements BookRepositoryInterface {
     }
 
     @Override
-    public Book findByIsbn(ISBN isbn) {
+    public List<Book> findByIsbn(ISBN isbn) {
+        List<Book> retVal = new ArrayList<>();
         for (Book b : books) {
             if(b.getISBN().equals(isbn)) {
-                return b;
+                retVal.add(b);
             }
         }
+        
         System.out.println("Book not found with ISBN: " + isbn);
-        return null;
+        return retVal;
     }
     
     @Override
@@ -60,6 +62,10 @@ public class BookService implements BookRepositoryInterface {
                 System.out.println("Book not found for deletion: " + isbn);
             }
         }
+    }
+
+    public Book create(ISBN Isbn, String title, String author, String format) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
 

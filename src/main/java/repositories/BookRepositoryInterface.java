@@ -15,7 +15,7 @@ import java.util.List;
 public interface BookRepositoryInterface {
     
     void save(Book book);
-    Book findByIsbn(ISBN isbn);
+    List<Book> findByIsbn(ISBN isbn);
     List<Book> findAll();
     void update(Book book);
     void deleteByIsbn(ISBN isbn);
